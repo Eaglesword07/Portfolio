@@ -22,6 +22,7 @@
   --animate-slide: slide 12s ease-in-out infinite;
   --animate-float: float 5s ease-in-out infinite;
   --animate-up: up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-marquee: marquee 32s linear infinite;
 
   @keyframes slide {
     0%, 28% { transform: translateX(0); }
@@ -35,4 +36,24 @@
   @keyframes up {
     from { transform: translateY(105%); }
   }
+   @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+}
+
+
+@keyframes pxy {
+  from { transform: translateY(-8%); }
+  to { transform: translateY(8%); }
+}
+
+@supports (animation-timeline: view()) {
+  .parallax-img {
+    animation: pxy linear both;
+    animation-timeline: view();
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-img { animation: none; }
 }
