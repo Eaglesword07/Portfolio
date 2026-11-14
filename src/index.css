@@ -17,3 +17,22 @@
   h1, h2, h3 { @apply font-semibold tracking-tight leading-tight; }
   a { color: inherit; text-decoration: none; }
 }
+
+@theme {
+  --animate-slide: slide 12s ease-in-out infinite;
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-up: up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes slide {
+    0%, 28% { transform: translateX(0); }
+    33%, 61% { transform: translateX(-33.333%); }
+    66%, 94% { transform: translateX(-66.666%); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes float {
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes up {
+    from { transform: translateY(105%); }
+  }
+}

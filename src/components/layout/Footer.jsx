@@ -16,7 +16,7 @@ export default function Footer() {
       }`}
     >
       <div className="flex flex-wrap justify-between gap-12">
-        <div className="max-w-[640px]">
+        <div className="max-w-160">
           <p className="flex items-center text-xs font-medium uppercase tracking-widest opacity-80">
             <span className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-[#3ddc84]" />
             Available for work
@@ -32,7 +32,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="flex flex-wrap gap-[72px] text-sm">
+        <div className="flex flex-wrap gap-18 text-sm">
           <div className="flex flex-col gap-3">
             <p className={heading}>Pages</p>
             {navLinks.map(({ label, to }) => (
@@ -65,9 +65,9 @@ export default function Footer() {
 
       <div
         aria-hidden="true"
-        className="mb-[-0.1em] mt-6 whitespace-nowrap text-[clamp(56px,16vw,240px)] font-semibold leading-[0.8] tracking-[-0.05em] text-line"
+        className="mb-[-0.1em] mt-6 whitespace-nowrap text-[clamp(56px,16vw,240px)] font-semibold leading-[0.8] tracking-tighter text-line"
       >
-        [Douglas Adekanye]
+        Douglas Adekanye
       </div>
     </footer>
   );

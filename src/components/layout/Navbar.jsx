@@ -18,8 +18,22 @@ export default function Navbar() {
       }`}
     >
       <nav className="flex items-center justify-between px-5 py-5 text-sm md:px-16">
-        <Link to="/" className="text-lg font-semibold" onClick={() => setOpen(false)}>
-          [YOUR NAME]
+        <Link to="/" className="text-xs uppercase font-semibold" onClick={() => setOpen(false)}>
+          <div className="text-primary">
+                <a href="#home">
+                    <span className="text-primary">
+                        Douglas
+                    </span>
+                </a>
+            </div>
+            <div className="flex items-center">
+                <a href="#home">
+                    <span>
+                        <span className="mr-1 text-primary">&nbsp; •</span>
+                        Adekanye
+                    </span>
+                </a>
+            </div>
         </Link>
 
         <ul className="hidden gap-7 md:flex">
