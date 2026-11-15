@@ -7,7 +7,7 @@ export default function Parallax({
   return (
     <div className={`overflow-hidden ${rounded} ${className}`}>
       <div
-        className={`parallax-img flex h-[120%] items-center justify-center text-[13px] text-[#555] ${bg}`}
+        className={`parallax-img relative top-[-10%] flex h-[120%] items-center justify-center text-[13px] text-[#555] ${bg}`}
       >
         {children}
       </div>

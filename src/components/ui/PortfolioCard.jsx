@@ -5,7 +5,7 @@ export default function PortfolioCard({ slug, title, category, bg }) {
     <Link to={`/portfolio/${slug}`} className="group block md:even:mt-18">
       <div className="relative h-95 overflow-hidden rounded-[20px]">
         <div
-          className={`parallax-img flex h-[120%] items-center justify-center text-[13px] text-[#555] transition-transform duration-500 group-hover:scale-105 ${bg}`}
+          className={`parallax-img relative top-[-10%] flex h-[120%] items-center justify-center text-[13px] text-[#555] transition-transform duration-500 group-hover:scale-105 ${bg}`}
         >
           [PROJECT IMAGE]
         </div>
