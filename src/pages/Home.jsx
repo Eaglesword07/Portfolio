@@ -1,6 +1,7 @@
 import Hero from "../components/home/Hero";
 import SkillsTicker from "../components/home/SkillsTicker";
 import AboutTeaser from "../components/home/AboutTeaser";
+import ProjectStrip from "../components/home/ProjectStrip";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <SkillsTicker />
       <AboutTeaser />
+      <ProjectStrip />
     </>
   );
 }
