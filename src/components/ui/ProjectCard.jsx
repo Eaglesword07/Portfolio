@@ -27,7 +27,7 @@ export default function ProjectCard({ slug, title, category, bg }) {
   return (
     <div className="shrink-0 pr-6">
       <Link
-        to={`/portfolio#${slug}`}
+        to={`/portfolio/${slug}`}
         className="group block w-90 md:w-180"
         onFocus={() => slideIn("100%")}
         onBlur={() => slideOut("100%")}
