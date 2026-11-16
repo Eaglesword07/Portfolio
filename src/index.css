@@ -58,7 +58,7 @@
   .parallax-img { animation: none; }
 }
 
-.doodle path,
+/* .doodle path,
 .doodle circle {
   fill: none;
   stroke: var(--color-paper);
@@ -69,15 +69,45 @@
 
 @keyframes draw {
   to { stroke-dashoffset: 0; }
-}
+} */
 
 /* The drawing animation only runs for visitors who haven't asked for reduced motion;
    everyone else just sees the finished doodle. */
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .doodle path,
   .doodle circle {
     stroke-dasharray: 1.01;
     stroke-dashoffset: 1.01;
     animation: draw 2.2s ease forwards;
+  }
+} */
+
+/* @property --reveal {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 140%;
+}
+
+@keyframes doodle-draw {
+  from { --reveal: 0%; }
+  to { --reveal: 140%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .doodle-reveal {
+    -webkit-mask-image: radial-gradient(circle at 50% 42%, #000 calc(var(--reveal) - 20%), transparent var(--reveal));
+    mask-image: radial-gradient(circle at 50% 42%, #000 calc(var(--reveal) - 20%), transparent var(--reveal));
+    animation: doodle-draw 2.1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+  }
+} */
+
+@keyframes doodle-rise {
+  from { clip-path: inset(100% 0 0 0); transform: translateY(5%); }
+  to { clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .doodle-reveal {
+    animation: doodle-rise 2.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 }

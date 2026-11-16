@@ -1,22 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { navLinks } from "../../data/navLinks";
 import Button from "../ui/Button";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
   const dark = pathname === "/contact"; // the Contact page is black
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const linkClass = ({ isActive }) =>
     `transition-opacity hover:opacity-100 ${isActive ? "font-semibold opacity-100" : "opacity-70"}`;
 
+  // Contact page: floats over the page, see-through at the top, solid black once scrolled.
+  // Other pages: sticky with a light blurred background.
+  const bar = dark
+    ? `fixed inset-x-0 top-0 text-paper transition-colors duration-300 ${
+        scrolled || open ? "bg-black" : "bg-transparent"
+      }`
+    : "sticky top-0 bg-paper/90 text-ink backdrop-blur-md";
+
   return (
-    <header
-      className={`sticky top-0 z-50 backdrop-blur-md transition-colors ${
-        dark ? "bg-black/85 text-paper" : "bg-paper/90 text-ink"
-      }`}
-    >
+    <header className={`z-50 ${bar}`}>
       <nav className="flex items-center justify-between px-5 py-5 text-sm md:px-16">
         <Link to="/" className="text-xs uppercase font-semibold" onClick={() => setOpen(false)}>
           <div className="text-primary">

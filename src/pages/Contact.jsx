@@ -8,8 +8,7 @@ const fillLink =
 export default function Contact() {
   return (
     <div className="bg-black text-paper">
-      <section className="relative flex min-h-[min(86vh,760px)] items-center overflow-hidden px-5 md:px-16">
-        <Doodle />
+      <section className="relative flex min-h-svh items-center overflow-hidden px-5 pt-20 md:px-16">        <Doodle />
         <h1 className="relative text-[clamp(40px,7vw,100px)] tracking-[-0.035em]">
           <span className="block overflow-hidden pb-[0.08em]">
             <span className="inline-block motion-safe:animate-up">Let's start a</span>
