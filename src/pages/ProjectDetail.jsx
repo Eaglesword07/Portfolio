@@ -3,10 +3,13 @@ import Button from "../components/ui/Button";
 import Eyebrow from "../components/ui/Eyebrow";
 import Parallax from "../components/ui/Parallax";
 import { projects } from "../data/projects";
+import usePageMeta from "../hooks/usePageMeta";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const index = projects.findIndex((p) => p.slug === slug);
+  const p = projects[index];
+  usePageMeta(p ? p.title : "Project not found", p?.summary);
 
   if (index === -1) {
     return (
@@ -19,7 +22,6 @@ export default function ProjectDetail() {
     );
   }
 
-  const p = projects[index];
   const next = projects[(index + 1) % projects.length];
   const meta = [
     ["Client", p.client],
@@ -67,11 +69,11 @@ export default function ProjectDetail() {
 
       {/* Overview */}
       <section className="px-5 py-20 md:px-16">
-        <div className="grid gap-6 md:grid-cols-[4fr_8fr] md:gap-14">
+        <div className="reveal grid gap-6 md:grid-cols-[4fr_8fr] md:gap-14">
           <Eyebrow>Overview</Eyebrow>
           <p className="max-w-190 text-[22px] leading-snug">{p.overview}</p>
         </div>
-        <div className="mt-16 grid gap-12 md:grid-cols-2 md:gap-14">
+        <div className="reveal mt-16 grid gap-12 md:grid-cols-2 md:gap-14">
           <div>
             <h3 className="text-[22px]">The challenge</h3>
             <p className="mt-3 text-base">{p.challenge}</p>
@@ -102,8 +104,8 @@ export default function ProjectDetail() {
 
       {/* Results */}
       <section className="bg-ink px-5 py-20 text-paper md:px-16">
-        <Eyebrow className="text-accent">Results</Eyebrow>
-        <h2 className="mb-10 mt-3 text-[34px]">What it delivered</h2>
+        <Eyebrow className="reveal text-accent">Results</Eyebrow>
+        <h2 className="reveal mb-10 mt-3 text-[34px]">What it delivered</h2>
         <div className="grid gap-10 md:grid-cols-3">
           {p.results.map(({ value, label }) => (
             <div key={label}>

@@ -7,7 +7,7 @@ export default function CvSkills() {
       <Eyebrow>Skills</Eyebrow>
       <h2 className="mb-8 mt-3 text-[34px]">What I bring to the table</h2>
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="reveal grid gap-5 md:grid-cols-2">
         {cvSkills.map(({ title, items }) => (
           <div
             key={title}

@@ -4,7 +4,7 @@ import { steps } from "../../data/process";
 export default function HowIWork() {
   return (
     <section className="bg-ink px-5 py-20 text-paper md:px-16">
-      <div className="mb-8">
+      <div className="reveal mb-8">
         <Eyebrow className="text-accent">Process</Eyebrow>
         <h2 className="mt-3 text-[34px]">How I work</h2>
       </div>

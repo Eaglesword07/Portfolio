@@ -2,10 +2,13 @@ import { useState } from "react";
 import Marquee from "../components/ui/Marquee";
 import PortfolioCard from "../components/ui/PortfolioCard";
 import { projects } from "../data/projects";
+import usePageMeta from "../hooks/usePageMeta";
 
 const categories = ["All", ...new Set(projects.map((p) => p.category))];
 
 export default function Portfolio() {
+  usePageMeta("Portfolio", "Selected projects and case studies.");
+
   const [active, setActive] = useState("All");
   const shown = active === "All" ? projects : projects.filter((p) => p.category === active);
 

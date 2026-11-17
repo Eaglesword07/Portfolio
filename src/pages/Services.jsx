@@ -2,8 +2,11 @@ import Button from "../components/ui/Button";
 import ServiceCard from "../components/ui/ServiceCard";
 import ToolsStrip from "../components/services/ToolsStrip";
 import { services } from "../data/services";
+import usePageMeta from "../hooks/usePageMeta";
 
 export default function Services() {
+  usePageMeta("Services", "What I can do for you and the tools I use.");
+
   return (
     <>
       <section className="px-5 pb-6 pt-16 md:px-16">
@@ -15,7 +18,7 @@ export default function Services() {
           <ServiceCard key={id} number={id} title={title} text={text} />
         ))}
 
-        <article className="flex min-h-55 flex-col gap-4 rounded-3xl bg-ink p-8 text-paper">
+        <article className="reveal flex min-h-55 flex-col gap-4 rounded-3xl bg-ink p-8 text-paper">
           <h3 className="text-[22px]">Not sure what you need?</h3>
           <p>[Short line inviting a free intro call.]</p>
           <Button to="/contact" variant="accent" className="self-start">

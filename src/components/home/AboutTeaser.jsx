@@ -13,7 +13,7 @@ export default function AboutTeaser() {
     <section className="grid items-center gap-14 px-5 py-20 md:min-h-[min(100vh,820px)] md:grid-cols-2 md:px-16">
       <Parallax className="h-110">[MY ABOUT IMAGE]</Parallax>
 
-      <div className="flex flex-col gap-5">
+      <div className="reveal flex flex-col gap-5">
         <Eyebrow>About me</Eyebrow>
         <h2 className="text-[34px]">[A short headline about my approach.]</h2>
         <p className="text-base leading-relaxed">

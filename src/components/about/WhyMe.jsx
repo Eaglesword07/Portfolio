@@ -9,7 +9,7 @@ export default function WhyMe() {
         <h2 className="mt-3 text-[34px]">Why I'd be a good addition to your team</h2>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="reveal grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {whyMe.map(({ title, text }, i) => (
           <div
             key={title}

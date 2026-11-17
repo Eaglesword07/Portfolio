@@ -1,11 +1,13 @@
 import Doodle from "../components/contact/Doodle";
 import ContactForm from "../components/contact/ContactForm";
 import { contact, socials } from "../data/socials";
+import usePageMeta from "../hooks/usePageMeta";
 
 const fillLink =
   "inline-block self-start bg-[linear-gradient(#FF5B2E,#FF5B2E)] bg-[length:100%_2px] bg-left-bottom bg-no-repeat pb-[3px] transition-[background-size,color] duration-300 hover:bg-[length:100%_100%] hover:text-ink";
 
 export default function Contact() {
+  usePageMeta("Contact", "Get in touch to discuss your idea, vision and project.");
   return (
     <div className="bg-black text-paper">
       <section className="relative flex min-h-svh items-center overflow-hidden px-5 pt-20 md:px-16">        <Doodle />

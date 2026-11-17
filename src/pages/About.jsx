@@ -3,8 +3,11 @@ import CvSkills from "../components/about/CvSkills";
 import Timeline from "../components/about/Timeline";
 import WhyMe from "../components/about/WhyMe";
 import { experience, education } from "../data/cv";
+import usePageMeta from "../hooks/usePageMeta";
 
 export default function About() {
+  usePageMeta("About", "My background, skills, experience and education.");
+
   return (
     <>
       <AboutHero />

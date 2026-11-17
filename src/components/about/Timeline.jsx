@@ -6,7 +6,7 @@ export default function Timeline({ eyebrow, title, items, flush = false }) {
       <Eyebrow>{eyebrow}</Eyebrow>
       <h2 className="mb-6 mt-3 text-[34px]">{title}</h2>
 
-      <div className="border-b border-ink">
+      <div className="reveal border-b border-ink">
         {items.map(({ period, title, text }, i) => (
           <div
             key={i}
