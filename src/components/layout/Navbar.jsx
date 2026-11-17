@@ -6,26 +6,43 @@ import Button from "../ui/Button";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const { pathname } = useLocation();
-  const dark = pathname === "/contact"; // the Contact page is black
+  const onContact = pathname === "/contact"; // black page
+  const onAbout = pathname === "/about"; // full-bleed photo hero
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      setPastHero(y > Math.min(window.innerHeight, 820));
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Light text is used whenever the bar sits over something dark
+  const lightText = onContact || (onAbout && !pastHero && !open);
+
+  let bar;
+  if (onContact) {
+    bar = `fixed inset-x-0 top-0 text-paper transition-colors duration-300 ${
+      scrolled || open ? "bg-black" : "bg-transparent"
+    }`;
+  } else if (onAbout) {
+    const state = open || pastHero
+      ? "bg-paper/90 text-ink backdrop-blur-md"
+      : scrolled
+        ? "bg-black/55 text-paper backdrop-blur-md"
+        : "bg-transparent text-paper";
+    bar = `fixed inset-x-0 top-0 transition-colors duration-300 ${state}`;
+  } else {
+    bar = "sticky top-0 bg-paper/90 text-ink backdrop-blur-md";
+  }
+
   const linkClass = ({ isActive }) =>
     `transition-opacity hover:opacity-100 ${isActive ? "font-semibold opacity-100" : "opacity-70"}`;
-
-  // Contact page: floats over the page, see-through at the top, solid black once scrolled.
-  // Other pages: sticky with a light blurred background.
-  const bar = dark
-    ? `fixed inset-x-0 top-0 text-paper transition-colors duration-300 ${
-        scrolled || open ? "bg-black" : "bg-transparent"
-      }`
-    : "sticky top-0 bg-paper/90 text-ink backdrop-blur-md";
 
   return (
     <header className={`z-50 ${bar}`}>
@@ -60,7 +77,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <div className="hidden md:block">
-            <Button to="/contact" variant={dark ? "light" : "dark"}>
+            <Button to="/contact" variant={lightText ? "light" : "dark"}>
               Book a Call
             </Button>
           </div>
@@ -87,7 +104,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <Button to="/contact" variant={dark ? "light" : "dark"} onClick={() => setOpen(false)}>
+          <Button to="/contact" variant={lightText ? "light" : "dark"} onClick={() => setOpen(false)}>
             Book a Call
           </Button>
         </div>
