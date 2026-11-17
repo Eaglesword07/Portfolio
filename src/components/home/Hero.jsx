@@ -2,9 +2,9 @@ import Button from "../ui/Button";
 
 // Replace these with real images later (see the note below the code)
 const slides = [
-  { label: "PHOTO 1", bg: "bg-stone" },
-  { label: "PHOTO 2", bg: "bg-sage" },
-  { label: "PHOTO 3", bg: "bg-sand" },
+  { src: "/images/hero/slide-1.webp", alt: "Portrait of Douglas Adekanye in a hood" },
+  { src: "/images/hero/slide-2.webp", alt: "Pen-sketch portrait of Douglas Adekanye" },
+  { src: "/images/hero/slide-3.webp", alt: "Close-up portrait of Douglas Adekanye in orange tones" },
 ];
 
 const tag = "rounded-full px-3.5 py-[7px] text-xs font-medium uppercase tracking-widest";
@@ -37,13 +37,15 @@ export default function Hero() {
       <div className="relative md:ml-6">
         <div className="h-115 overflow-hidden rounded-t-[310px] rounded-b-3xl md:h-155">
           <div className="flex h-full w-[300%] motion-safe:animate-slide">
-            {slides.map(({ label, bg }) => (
-              <div
-                key={label}
-                className={`flex h-full w-1/3 items-center justify-center text-[13px] text-[#555] ${bg}`}
-              >
-                [{label}]
-              </div>
+            {slides.map(({ src, alt }, i) => (
+              <img
+                key={src}
+                src={src}
+                alt={alt}
+                fetchPriority={i === 0 ? "high" : undefined}
+                decoding="async"
+                className="h-full w-1/3 object-cover"
+              />
             ))}
           </div>
         </div>
@@ -53,7 +55,7 @@ export default function Hero() {
           <p className="mt-1 text-xs">Projects completed</p>
         </div>
         <div className="absolute -right-2 top-12 rounded-2xl bg-accent px-5.5 py-4 motion-safe:animate-float [animation-direction:reverse] [animation-duration:6s]">
-          <p className="text-[28px] font-semibold leading-none">[2] yrs</p>
+          <p className="text-[28px] font-semibold leading-none">[2+] yrs</p>
           <p className="mt-1 text-xs">Experience</p>
         </div>
       </div>

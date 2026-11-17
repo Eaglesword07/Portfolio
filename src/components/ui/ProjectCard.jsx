@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
-export default function ProjectCard({ slug, title, category, bg }) {
+export default function ProjectCard({ slug, title, category, images }) {
   const overlay = useRef(null);
 
   // Which half of the image is the mouse in? Top half slides from above, bottom half from below.
@@ -38,9 +38,15 @@ export default function ProjectCard({ slug, title, category, bg }) {
           onMouseLeave={(e) => slideOut(sideOf(e))}
         >
           <div
-            className={`flex h-100 items-center justify-center text-[13px] text-[#555] transition-transform duration-500 group-hover:scale-105 md:h-140 ${bg}`}
+            className={`flex h-100 items-center justify-center text-[13px] text-[#555] transition-transform duration-500 group-hover:scale-105 md:h-140 ${images}`}
           >
-            [IMAGE]
+            <img
+              src={images.a}
+              alt={`${title}: ${category} illustration`}
+              loading="lazy"
+              decoding="async"
+              className="h-100 w-full object-cover transition-transform duration-500 group-hover:scale-105 md:h-140"
+            />
           </div>
           <div
             ref={overlay}

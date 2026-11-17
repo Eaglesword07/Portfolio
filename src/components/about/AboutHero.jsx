@@ -7,7 +7,12 @@ export default function AboutHero() {
     <section className="relative flex min-h-[min(100vh,820px)] items-end overflow-hidden text-paper">
       <div className="absolute inset-0">
         <Parallax rounded="rounded-none" className="h-full">
-          [YOUR PHOTO · FULL WIDTH]
+          <img
+            src="/images/about/about-hero.webp"
+            alt="Portrait of Douglas Adekanye"
+            fetchPriority="high"
+            className="h-full w-full object-cover object-[50%_35%]"
+          />
         </Parallax>
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(21,21,21,.88),rgba(21,21,21,.15)_65%)]" />

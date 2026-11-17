@@ -17,14 +17,21 @@ const placeholder = {
   ],
 };
 
+const gallery = (slug) => ({
+  cover: `/images/projects/${slug}/cover.webp`,
+  wide: `/images/projects/${slug}/wide.webp`,
+  a: `/images/projects/${slug}/a.webp`,
+  b: `/images/projects/${slug}/b.webp`,
+});
+
 export const projects = [
   {
     ...placeholder,
     id: 1,
     slug: "project-one",
     title: "[Project one]",
-    category: "[Category A]",
-    bg: "bg-stone",
+    category: "Systems analysis",
+    images: gallery("project-one"),
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/username/project-one",
   },
@@ -33,8 +40,8 @@ export const projects = [
     id: 2,
     slug: "project-two",
     title: "[Project two]",
-    category: "[Category B]",
-    bg: "bg-sage",
+    category: "Project management",
+    images: gallery("project-two"),
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/username/project-two",
   },
@@ -43,8 +50,8 @@ export const projects = [
     id: 3,
     slug: "project-three",
     title: "[Project three]",
-    category: "[Category C]",
-    bg: "bg-sand",
+    category: "Robotics (ROS)",
+    images: gallery("project-three"),
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/username/project-three",
   },
@@ -53,8 +60,8 @@ export const projects = [
     id: 4,
     slug: "project-four",
     title: "[Project four]",
-    category: "[Category D]",
-    bg: "bg-stone",
+    category: "Software",
+    images: gallery("project-four"),
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/username/project-four",
   },

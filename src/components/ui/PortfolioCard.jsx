@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
 
-export default function PortfolioCard({ slug, title, category, bg }) {
+export default function PortfolioCard({ slug, title, category, images }) {
   return (
     <Link to={`/portfolio/${slug}`} className="reveal group block md:even:mt-18">
       <div className="relative h-95 overflow-hidden rounded-[20px]">
         <div
-          className={`parallax-img relative top-[-10%] flex h-[120%] items-center justify-center text-[13px] text-[#555] transition-transform duration-500 group-hover:scale-105 ${bg}`}
+          className={`parallax-img relative top-[-10%] flex h-[120%] items-center justify-center text-[13px] text-[#555] transition-transform duration-500 group-hover:scale-105 ${images}`}
         >
-          [PROJECT IMAGE]
+          <img
+            src={images.a}
+            alt={`${title}: ${category} illustration`}
+            loading="lazy"
+            decoding="async"
+            className="parallax-img relative top-[-10%] h-[120%] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
         </div>
         <span className="absolute bottom-4 right-4 flex h-19 w-19 scale-0 items-center justify-center rounded-full bg-accent text-[13px] font-medium transition-transform duration-300 group-hover:scale-100">
           View ↗

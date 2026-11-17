@@ -63,8 +63,8 @@ export default function ProjectDetail() {
       </section>
 
       {/* Full-width cover */}
-      <Parallax rounded="rounded-none" bg={p.bg} className="h-[min(80vh,640px)]">
-        [COVER IMAGE · FULL WIDTH]
+      <Parallax rounded="rounded-none" className="h-[min(80vh,640px)]">
+        <img src={p.images.cover} alt={`${p.title}: ${p.category} overview`} className="h-full w-full object-cover" />
       </Parallax>
 
       {/* Overview */}
@@ -87,17 +87,17 @@ export default function ProjectDetail() {
 
       {/* Gallery */}
       <section className="px-5 pb-20 md:px-16">
-        <Parallax className="h-105 md:h-140">[PROJECT IMAGE · FULL WIDTH]</Parallax>
+        <Parallax className="h-105 md:h-140">
+          <img src={p.images.wide} alt={`${p.title}: detailed view`} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+        </Parallax>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <div className="group overflow-hidden rounded-[20px]">
-            <div className="flex h-90 items-center justify-center bg-stone text-[13px] text-[#555] transition-transform duration-500 group-hover:scale-105 md:h-110">
-              [PROJECT IMAGE]
-            </div>
+            <img src={p.images.a} alt={`${p.title}: supporting view`} loading="lazy" decoding="async"
+              className="h-90 w-full object-cover transition-transform duration-500 group-hover:scale-105 md:h-110" />
           </div>
           <div className="group overflow-hidden rounded-[20px] md:mt-18">
-            <div className="flex h-90 items-center justify-center bg-sage text-[13px] text-[#555] transition-transform duration-500 group-hover:scale-105 md:h-110">
-              [PROJECT IMAGE]
-            </div>
+            <img src={p.images.b} alt={`${p.title}: additional view`} loading="lazy" decoding="async"
+              className="h-90 w-full object-cover transition-transform duration-500 group-hover:scale-105 md:h-110" />
           </div>
         </div>
       </section>

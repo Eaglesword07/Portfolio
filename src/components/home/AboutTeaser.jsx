@@ -11,7 +11,15 @@ const stats = [
 export default function AboutTeaser() {
   return (
     <section className="grid items-center gap-14 px-5 py-20 md:min-h-[min(100vh,820px)] md:grid-cols-2 md:px-16">
-      <Parallax className="h-110">[MY ABOUT IMAGE]</Parallax>
+      <Parallax className="h-110">
+        <img
+          src="/images/about/home-about.webp"
+          alt="Black-and-white close-up of Douglas Adekanye"
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover"
+        />
+      </Parallax>
 
       <div className="reveal flex flex-col gap-5">
         <Eyebrow>About me</Eyebrow>
