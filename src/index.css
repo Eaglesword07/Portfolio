@@ -16,6 +16,9 @@
   body { @apply bg-paper text-ink font-sans text-[15px] antialiased; }
   h1, h2, h3 { @apply font-semibold tracking-tight leading-tight; }
   a { color: inherit; text-decoration: none; }
+  :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;}
 }
 
 /* Custom animations */

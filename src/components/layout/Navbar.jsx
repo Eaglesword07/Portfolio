@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     <header className={`z-50 ${bar}`}>
-      <nav className="flex items-center justify-between px-5 py-5 text-sm md:px-16">
+      <nav aria-label="Main" className="flex items-center justify-between px-5 py-5 text-sm md:px-16">
         <Link to="/" className="text-xs uppercase font-semibold" onClick={() => setOpen(false)}>
           <div className="text-primary">
                 <a href="#home">

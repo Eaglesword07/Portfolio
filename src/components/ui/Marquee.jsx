@@ -13,7 +13,13 @@ export default function Marquee({
         style={{ animationDuration: `${duration}s` }}
       >
         <div className="flex shrink-0">{children}</div>
-        <div className="flex shrink-0" aria-hidden="true">{children}</div>
+        <div
+          className="flex shrink-0"
+          aria-hidden="true"
+          ref={(el) => el?.setAttribute("inert", "")}
+        >
+          {children}
+        </div>
       </div>
     </div>
   );
